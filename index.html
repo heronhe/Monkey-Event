@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi">
+
+<script type="text/javascript" src="Monkey-Event-2.1.min.js"></script>
+
+<title>兰蔻</title>
+</head>
+
+<body>
+	
+    <div id="box1" style="width: 300px; height: 300px; background-color: #333"></div>
+
+    <div id="box2" style="width: 300px; height: 300px; background-color: #333"></div>
+    
+
+    <script>
+        var mkevent1 = MonkeyEventInit(document.getElementById('box1'));
+
+        mkevent1.down = function(){
+            console.log('down')
+        }
+
+        mkevent1.up = function(v){
+           console.log(v) // 返回参数v为对象，具体信息：距离、速度， 注意当然距离为总距离
+        };
+
+        mkevent1.left = function(){
+            console.log('left')
+        }
+
+        mkevent1.right = function(){
+            console.log('right')
+        }
+
+        mkevent1.top = function(){
+            console.log('top')
+        }
+
+        mkevent1.bottom = function(){
+            console.log('bottom')
+        }
+
+        mkevent1.move = function(v){
+            console.log(v) // 返回参数v为对象，具体信息：距离、速度， 注意当前距离为此时间段距离
+        }
+
+        var mkevent2 = MonkeyEventInit(document.getElementById('box2'));
+
+        mkevent2.down = function(){
+            console.log('down2')
+        }
+
+        mkevent2.up = function(v){
+            console.log(v)
+        };
+
+        mkevent2.left = function(){
+            console.log('left2')
+        }
+
+        mkevent2.right = function(){
+            console.log('right2')
+        }
+
+        mkevent2.top = function(){
+            console.log('top2')
+        }
+
+        mkevent2.bottom = function(){
+            console.log('bottom2')
+        }
+
+        mkevent2.move = function(v){
+            console.log(v)
+        }
+
+        
+
+
+    </script>
+
+
+</body>
+</html>
