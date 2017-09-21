@@ -5,76 +5,108 @@
 1.初始化：
 
 var loadingPage = new MK_Loading ({
-			LDpage:true,
-			LDdom:document.getElementById("img1"),
-			LDtween:true,
-			LDup:function(v){
-				$("#val").html(v);
-			},
-			LDsuccess:function(){
-				console.log("加载完成");
-			}
-		});
+		LDpage:true,
+		LDdom:document.getElementById("img1"),
+		LDtween:true,
+		LDup:function(v){
+			$("#val").html(v);
+		},
+		LDsuccess:function(){
+			console.log("加载完成");
+		}
+	});
 
-参数说明
+参数说明：
+
 LDpage：boolean类型，true加载页面所以图片、音频、视频
+
 LDdom：设定需要加载img对象或者是某个容器下面的所有img对象，可以为JQ对象或者JSdom对象，如：$(‘img’)、document.getElementById("img1")、{type:"img",src:"logo.png"}
+
 LDtween：boolean类型，百分比缓动效果（1到100的过渡效果）
+
 LDup：加载更新方法，默认传递加载值，（值为：0到100）
+
 LDsuccess：加载完成回调方法
 
+
 2.方法
+
 （1）add()
+
 传递类型和初始化的LDdom一致，返回数组类型加载对象，获取对象中的dom对象的方法为getDom，例如：
+
 var logo = loadingPage.add({type:"img",src:"logo.png"});
+
 var logoElem = logo[0]. getDom(); 或者
+
 var logoElem = logo[0]. e;
+
 注意：只有加载dom对象才拥有方法和属性，请在加载完成之后开始调用；
 
+
 （2）addImgSheet()
+
 加载特定序列帧图片
+
 实例：
+
 loading.addImgSheet({
-		imgPrefix:"images/乐事0602_000",
-		imgType:"png",
-		start:1,
-		length:40,
-		step:1,
-		mask:'00'
-	})
+	imgPrefix:"images/乐事0602_000",
+	imgType:"png",
+	start:1,
+	length:40,
+	step:1,
+	mask:'00'
+})
+
 imgPrefix：图片名称前缀；注意编号小于10的时候前面需要加0，如01
+
 imgType：图片类型
+
 start：图片其实值
+
 length：图片帧长度
+
 step：图片帧加载步长，也可以跳帧加载
+
 mask：图片编号字符长度，例如图片最大数为250，mask值为000，图片最大数为50， mask为00
 
+
 （3）start()
+
 加载开始事件
 
 （4）addEventListener(name,function)
+
 加载添加侦听事件
+
 Name值为update，加载更新事件，类似初始化的LDup
+
 Name值为complete，加载完成时间，类似初始化的LDup
 
-（5）addAjax(function)
-添加ajax，将ajax作为load一部分，ajax请求完成之后调用回掉方法，也可以作为延时loading来使用，通过setTimeOut来控制延时时间，使用方法如下：
-loading.addAjax(function(cb){
-        $.ajax({
-            url: "./login",
-            type: "POST",
-            data:{"Uname":'dfd', 'Upassword': 'fdd'},
-            dataType: "JSON",
-            success: function (result) {
-                cb(null, true);
-            },
-error: function(){
-	cb(new Error());
-            }
-        });
 
+（5）addAjax(function)
+
+添加ajax，将ajax作为load一部分，ajax请求完成之后调用回掉方法，也可以作为延时loading来使用，通过setTimeOut来控制延时时间，使用方法如下：
+
+loading.addAjax(function(cb){
+	$.ajax({
+			url: "./login",
+			type: "POST",
+			data:{"Uname":'dfd', 'Upassword': 'fdd'},
+			dataType: "JSON",
+			success: function (result) {
+				cb(null, true);
+			},
+			error: function(){
+				cb(new Error());
+			}
+	});
 });
+
 备注：当前loading只支持图片
+
+
 
 二、动画帧播放文档
 
