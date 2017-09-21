@@ -5,7 +5,7 @@
 1.初始化：
 
 var loadingPage = new MK_Loading ({
-		LDpage:true,
+LDpage:true,
 		LDdom:document.getElementById("img1"),
 		LDtween:true,
 		LDup:function(v){
