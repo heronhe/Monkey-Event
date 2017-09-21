@@ -3,6 +3,7 @@
 一、load使用文档
 
 1.初始化：
+
 var loadingPage = new MK_Loading ({
 			LDpage:true,
 			LDdom:document.getElementById("img1"),
