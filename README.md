@@ -5,16 +5,25 @@
 1.初始化：
 
 var loadingPage = new MK_Loading ({
-LDpage:true,
-		LDdom:document.getElementById("img1"),
-		LDtween:true,
-		LDup:function(v){
-			$("#val").html(v);
-		},
-		LDsuccess:function(){
-			console.log("加载完成");
-		}
-	});
+
+	LDpage:true,
+	
+	LDdom:document.getElementById("img1"),
+	
+	LDtween:true,
+	
+	LDup:function(v){
+	
+		$("#val").html(v);
+		
+	},
+	
+	LDsuccess:function(){
+	
+		console.log("加载完成");
+		
+	}
+});
 
 参数说明：
 
