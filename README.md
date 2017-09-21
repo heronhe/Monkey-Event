@@ -4,26 +4,26 @@
 
 1.初始化：
 
-var loadingPage = new MK_Loading ({
+	var loadingPage = new MK_Loading ({
 
-	LDpage:true,
-	
-	LDdom:document.getElementById("img1"),
-	
-	LDtween:true,
-	
-	LDup:function(v){
-	
-		$("#val").html(v);
-		
-	},
-	
-	LDsuccess:function(){
-	
-		console.log("加载完成");
-		
-	}
-});
+		LDpage:true,
+
+		LDdom:document.getElementById("img1"),
+
+		LDtween:true,
+
+		LDup:function(v){
+
+			$("#val").html(v);
+
+		},
+
+		LDsuccess:function(){
+
+			console.log("加载完成");
+
+		}
+	});
 
 参数说明：
 
@@ -98,8 +98,8 @@ Name值为complete，加载完成时间，类似初始化的LDup
 
 添加ajax，将ajax作为load一部分，ajax请求完成之后调用回掉方法，也可以作为延时loading来使用，通过setTimeOut来控制延时时间，使用方法如下：
 
-loading.addAjax(function(cb){
-	$.ajax({
+	loading.addAjax(function(cb){
+		$.ajax({
 			url: "./login",
 			type: "POST",
 			data:{"Uname":'dfd', 'Upassword': 'fdd'},
@@ -110,10 +110,12 @@ loading.addAjax(function(cb){
 			error: function(){
 				cb(new Error());
 			}
+		});
 	});
-});
 
 备注：当前loading只支持图片
+
+
 
 
 
@@ -128,18 +130,20 @@ loading.addAjax(function(cb){
 说明：两个播放类型初始化和方法基本一致，animateSprite在初始化多了两个属性row、column
 
 1始化：
-new MK_animateSprite ({
-				parents:document.getElementById("animate1"),
-				type:"canvas",
-				width:300,
-				height:364,
-				imgList:imgs,
-				row:6,
-				column:5,
-				step:1,
-				times:100,
-				loop:false
-			});
+
+	new MK_animateSprite ({
+		parents:document.getElementById("animate1"),
+		type:"canvas",
+		width:300,
+		height:364,
+		imgList:imgs,
+		row:6,
+		column:5,
+		step:1,
+		times:100,
+		loop:false
+	});
+	
 参数说明：
 Parents：动画显示位置的dom对象
 Type:播放图片显示类型，canvas：用canvas进行播放，img：是用images进行播放
@@ -190,9 +194,9 @@ complete：动画播放完成事件
 
 n：n为当前帧数以内的任何值，如：
 
-animateImg1.addEventListener(15,function(){
-					console.log("15");
-				});
+	animateImg1.addEventListener(15,function(){
+		console.log("15");
+	});
         
 播放到15帧的时候，打印出15
 
