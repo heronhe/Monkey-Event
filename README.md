@@ -1,5 +1,7 @@
 # Monkey-Event
 
+触控事件
+
 MonkeyEventInit(elem)
 
 elem: dom对象
