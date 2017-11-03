@@ -2,15 +2,7 @@ var MonkeyEventInit = (function(){
 
 	var MonkeyEvent = {};
 
-	var ISPC = (function()  {  
-	   var userAgentInfo = navigator.userAgent;  
-	   var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
-	   var flag = true;  
-	   for (var v = 0; v < Agents.length; v++) {  
-		   if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
-	   }  
-	   return flag;  
-	})();
+	var ISPC = !(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i).test(navigator.userAgent);
 
 	MonkeyEvent.MOUSE_DOWN = "mousedown";
 	MonkeyEvent.MOUSE_UP = "mouseup";
