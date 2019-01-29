@@ -15,7 +15,7 @@ elem: dom对象
         }
 
         mkevent1.up = function(v){
-           console.log(v) // 返回参数v为对象，具体信息：距离、速度， 注意当然距离为总距离
+           console.log(v) // 返回参数v为对象，具体信息：距离、速度， 注意当前距离为总距离
         };
         
         //左滑动
